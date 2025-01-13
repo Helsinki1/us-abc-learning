@@ -24,12 +24,12 @@ function App() {
     <Router>
       <nav>
         <Link to="/"> Home </Link>
-        <Link to="/createpost"> CreatePost </Link>
+        {isAuth && <Link to="/createpost"> CreatePost </Link>}
         {!isAuth? <Link to="/login"> Login </Link> : <button onClick={signUserOut}> Logout </button>}
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/createpost" element={<CreatePost />} />
+        <Route path="/createpost" element={<CreatePost isAuth={isAuth}/>} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth}/>} />
       </Routes>
     </Router>

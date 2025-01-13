@@ -1,12 +1,16 @@
 import React from 'react'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore"; 
 import { database, auth } from "../firebase-config" // .. means from parent folder
 // addDoc allows you to add a document to a firebase collection you created
 // collection allows you to specify which collection you're talking about
 
-function CreatePost() {
+interface Props{
+  isAuth: boolean;
+}
+
+function CreatePost( {isAuth} : Props ) {
   const navigator = useNavigate();
 
   const [title, setTitle] = useState("");
@@ -17,7 +21,6 @@ function CreatePost() {
 
   // we need an async thread to communicate w firebase as other things happen
   const createPost = async () => { // function to make a post
-    // firebase is noSQL
     // arg1: a ref to specific collection, arg2: data to store
     // we plan on structuring our data like: title|postText|author
     // logging in w Google will store user's name & id in 'auth' obj
@@ -29,6 +32,12 @@ function CreatePost() {
     // the "?" accounts for the possibility of the entry being null (ex it was never initialized)
     navigator("/");
   }
+
+  useEffect(()=>{ // if logged out & user forces access to /createpost, redirect to /login
+    if (!isAuth) {
+      navigator("/login");
+    }
+  }, []);
 
   return (
     <div className="createPostPage">
