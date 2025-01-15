@@ -24,11 +24,16 @@ nav {
   text-decoration: none;
 }
 
+nav button {
+  margin-right: 40px;
+}
+
 a {
   color: white;
   text-decoration: none;
   margin: 10px;
   font-size: 25px;
+  margin-right: 30px;
 }
 
 .createPostPage {
@@ -98,6 +103,7 @@ textarea {
   justify-content: center;
   align-items: center;
 }
+
 
 .loginPage p {
   font-size: 30px;
