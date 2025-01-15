@@ -10,7 +10,7 @@ import CreatePost from "./pages/CreatePost";
 
 function App() {
   console.log("App is rendering"); // Debug
-  const [isAuth, setIsAuth] = useState(false); // track if the user is logged in w state variable
+  const [isAuth, setIsAuth] = useState(JSON.parse(localStorage.getItem("isAuth") ?? "false")); // track if the user is logged in w state variable
 
   const signUserOut = () => {
     signOut(auth).then( () => {
