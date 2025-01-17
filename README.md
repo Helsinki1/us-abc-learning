@@ -1,2 +1,2 @@
 # us-abc-learning
-A website built on React &amp; Next.js to connect US tutors with international students
+A website built on React (Vite) &amp; Firebase to connect US tutors with Chinese/Taiwanese international students
