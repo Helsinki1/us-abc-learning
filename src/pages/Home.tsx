@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { database, provider } from '../firebase-config';
+import { addDoc, collection } from 'firebase/firestore';
 
 function Home() {
-
   const [title1, setTitle1] = useState<string>("");
   const [title2, setTitle2] = useState<string>("");
   const [title3, setTitle3] = useState<string>("");
@@ -31,6 +32,21 @@ function Home() {
       .then((response) => response.text())
       .then((text) => setContent3(text));
   }, []);
+
+  const [nameIn, setNameIn] = useState<string>("");
+  const [wechatIn, setWechatIn] = useState<string>("");
+  const [phoneIn, setPhoneIn] = useState<number>(0);
+  const [subjectIn, setSubjectIn] = useState<string>("");
+
+  const collectionRef = collection(database, "posts");
+  const createPost = async () => {
+    await addDoc(collectionRef, {
+      name: nameIn,
+      wechat: wechatIn,
+      phone: phoneIn,
+      subject: subjectIn
+    });
+  }
   
   return (
     <div className="bg-slate-200 h-full w-full">
@@ -72,6 +88,35 @@ function Home() {
           <img src="/public/ivies.jpg" className=" w-1/3 h-auto"></img>
         </div>
       </div>
+
+      <div className=" flex flex-col place-content-center items-center bg-blue-500 w-full h-96 mt-16">
+        <h1 className="text-white text-2xl">
+          免费领取399元在线英语课
+        </h1>
+        <input className="mt-4 w-1/3 h-12 p-4"
+          placeholder="您的名字"
+          onChange={(event)=>{setNameIn(event.target.value);}}
+        />
+        <input className="mt-3 w-1/3 h-12 p-4"
+          placeholder="您的微信号"
+          onChange={(event)=>{setNameIn(event.target.value);}}
+        />
+        <input className="mt-3 w-1/3 h-12 p-4"
+          placeholder="您的手机号码"
+          onChange={(event)=>{setNameIn(event.target.value);}}
+        />
+        <input className="mt-3 w-1/3 h-12 p-4"
+          placeholder="想试听的课程"
+          onChange={(event)=>{setNameIn(event.target.value);}}
+        />
+        <button className="bg-red-500 rounded-lg w-28 h-10 mt-5 hover:border text-white font-bold hover:border-white"
+          onClick={createPost}
+        >
+          立即领取
+        </button>
+      </div>
+
+      <div className="bg-slate-300 w-full h-24"></div>
     </div>
   )
 }
