@@ -49,30 +49,29 @@ function Home() {
         </div>
       </div>
 
-      <div className="flex ml-64 mr-52 mt-10">
-        <div className="flex flex-col w-1/2 space-y-10">
-          <div className="flex flex-col w-auto h-auto p-5 rounded-3xl bg-slate-300">
+      <div className="flex flex-col ml-60 mr-52 mt-10">
+        <div className="flex mt-3 justify-between">
+          <div className="flex flex-col w-1/2 h-auto p-5 rounded-3xl bg-slate-300">
             <h1 className="text-gray-700 text-lg sm:text-sm md:text-md xl:text-xl mt-1 font-bold">{title1}</h1>
             <p className="text-gray-700 text-lg sm:text-sm md:text-md xl:text-xl mt-2">{content1}</p>
           </div>
-          <div className="flex flex-col w-auto h-auto p-5 rounded-3xl bg-slate-300">
+          <video src="/public/homevid.mp4" controls playsInline className=" w-1/3 max-w-2xl h-auto rounded shadow-lg sm:"></video>
+        </div>
+        <div className="flex mt-3 justify-between">
+          <div className="flex flex-col w-1/2 h-auto p-5 rounded-3xl bg-slate-300">
             <h1 className="text-gray-700 text-lg sm:text-sm md:text-md xl:text-xl mt-1 font-bold">{title2}</h1>
             <p className="text-gray-700 text-lg sm:text-sm md:text-md xl:text-xl mt-2">{content2}</p>
           </div>
-          <div className="flex flex-col w-auto h-auto p-5 rounded-3xl bg-slate-300">
+          <img src="/public/homepic1.jpg" className=" w-1/3 h-auto"></img>
+        </div>
+        <div className="flex mt-3 justify-between">
+          <div className="flex flex-col w-1/2 h-auto p-5 rounded-3xl bg-slate-300">
             <h1 className="text-gray-700 text-lg sm:text-sm md:text-md xl:text-xl mt-1 font-bold">{title3}</h1>
             <p className="text-gray-700 text-lg sm:text-sm md:text-md xl:text-xl mt-2">{content3}</p>
           </div>
-        </div>
-
-        <div className="flex flex-col space-y-10 w-1/3 h-full ml-48 mt-3">
-          <video src="/public/homevid.mp4" controls playsInline className="w-full max-w-2xl h-auto rounded shadow-lg sm:"></video>
-          <img src="/public/homepic1.jpg" className="w-auto h-auto"></img>
-          <img src="/public/ivies.jpg" className="w-auto h-auto"></img>
+          <img src="/public/ivies.jpg" className=" w-1/3 h-auto"></img>
         </div>
       </div>
-
-      <div className="relative text-sm"> Home </div>
     </div>
   )
 }
