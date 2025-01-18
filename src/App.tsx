@@ -1,14 +1,13 @@
 import { auth, provider } from "./firebase-config"
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import { useState } from "react";
-import { signOut } from "firebase/auth";
+import { signOut, signInWithPopup } from "firebase/auth";
 import "./index.css"
 
 import Home from "./pages/Home";
 import Courses from "./pages/Courses";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
-import Login from "./pages/Login";
 import Appt from "./pages/Appt";
 
 function App() {
@@ -20,6 +19,13 @@ function App() {
       localStorage.clear();
       setIsAuth(false);
       window.location.pathname = "/login";
+    });
+  };
+
+  const signInWithGoogle = () => { // no argument function
+    signInWithPopup(auth, provider).then((result) => {
+      localStorage.setItem("isAuth", "true");
+      setIsAuth(true);
     });
   };
 
@@ -43,7 +49,7 @@ function App() {
           <Link to="/contactus" className="text-gray-700 hover:underline mr-11 text-lg">
             联系我们 
           </Link>
-          {!isAuth? <Link to="/login" className="mr-7 text-lg"> Login </Link> : <button className="mr-7 text-lg" onClick={signUserOut}> Logout </button>}
+          {!isAuth? <button className="mr-7 text-lg" onClick={signInWithGoogle}> Login </button> : <button className="mr-7 text-lg" onClick={signUserOut}> Logout </button>}
         </div>
       </nav>
 
@@ -52,7 +58,6 @@ function App() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/login" element={<Login setIsAuth={setIsAuth}/>} />
         <Route path="/appt" element={<Appt />} />
       </Routes>
     </Router>
