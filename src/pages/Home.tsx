@@ -49,7 +49,7 @@ function Home() {
   }
   
   return (
-    <div className="bg-slate-200 h-full w-full">
+    <div className="bg-slate-200 h-full min-h-screen w-full">
       <div className="relative w-full h-96">
         <img src="/public/columbiaBanner.jpg" className="object-cover w-full h-full"></img>
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-60">
@@ -89,7 +89,7 @@ function Home() {
         </div>
       </div>
 
-      <div className=" flex flex-col place-content-center items-center bg-blue-500 w-full h-96 mt-16">
+      <div className=" flex flex-col place-content-center items-center bg-blue-400 w-full h-96 mt-16">
         <h1 className="text-white text-2xl">
           免费领取399元在线英语课
         </h1>
