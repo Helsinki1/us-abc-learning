@@ -248,7 +248,12 @@ function Courses() {
             </div>
         )}
 
-        <div className="bg-slate-300 mt-10 w-3/4 h-40"></div>
+        <div className="flex bg-white mt-16 mb-16 w-7/12 h-96 items-center justify-evenly">
+            <div className="flex flex-col items-center">
+                <h1 className="text-gray-700 text-3xl">咨询课程</h1>
+                <img src="/public/courses/qrcode.jpg" className="mt-4 w-64"></img>
+            </div>
+        </div>
       </div>
     </div>
   )
