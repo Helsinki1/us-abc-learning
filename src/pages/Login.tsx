@@ -9,13 +9,10 @@ interface Props{
 
 function Login( {setIsAuth}:Props ) { 
 
-  let navigator = useNavigate();
-
   const signInWithGoogle = () => { // no argument function
     signInWithPopup(auth, provider).then((result) => {
       localStorage.setItem("isAuth", "true");
       setIsAuth(true);
-      navigator("/"); // redirects to the Home page
     });
   };
 

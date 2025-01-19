@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 function ContactUs() {
   return (
-    <div>
-      <div className="relative text-sm"> Contact Us </div>
+    <div className="bg-slate-200 h-full min-h-screen w-full">
+      Contact Us
     </div>
   )
 }
