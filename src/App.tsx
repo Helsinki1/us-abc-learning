@@ -8,7 +8,6 @@ import Home from "./pages/Home";
 import Courses from "./pages/Courses";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
-import Appt from "./pages/Appt";
 
 function App() {
   console.log("App is rendering"); // Debug
@@ -18,7 +17,7 @@ function App() {
     signOut(auth).then( () => {
       localStorage.clear();
       setIsAuth(false);
-      window.location.pathname = "/login";
+      window.location.pathname = "/";
     });
   };
 
@@ -58,7 +57,6 @@ function App() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/appt" element={<Appt />} />
       </Routes>
     </Router>
   )
