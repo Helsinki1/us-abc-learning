@@ -58,7 +58,7 @@ function Home() {
           </h1>
           <h1 className="text-white text-2xl mt-1">英语培训和美国留学与升学指导</h1>
           <button className="bg-red-500 rounded-lg w-28 h-10 mt-5 hover:border hover:border-white">
-            <Link to="/appt" className="text-white text-lg">
+            <Link to="/contactus" className="text-white text-lg">
               预约咨询
             </Link>
           </button>

@@ -41,7 +41,7 @@ function AboutUs() {
         <div className="bg-blue-400 text-white text-2xl font-bold w-1/2 h-auto mt-20 text-center p-3">课堂回放片段</div>
 
         {/* navigation buttons with video in the middle */}
-        <div className="inset-0 flex justify-center items-center px-4 mt-6 mb-20">
+        <div className="flex justify-center items-center px-4 mt-6 mb-20">
           <button
             onClick={() => setVidIndex((vidIndex===0)? 0:vidIndex-1)}
             className="bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700"
